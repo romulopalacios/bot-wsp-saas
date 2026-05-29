@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: saas_test_user
+      POSTGRES_PASSWORD: saas_test_password
+      POSTGRES_DB: saas_test_db
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U saas_test_user"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - pgdata_test:/var/lib/postgresql/data
+
+volumes:
+  pgdata_test:
+    driver: local

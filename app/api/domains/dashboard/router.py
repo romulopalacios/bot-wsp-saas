@@ -1,0 +1,1 @@
+from app.api.domains.auth.router import router

@@ -1,0 +1,1 @@
+"""Superadmin domain package."""
